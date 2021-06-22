@@ -169,7 +169,7 @@ class MyProduce():
         # 首先删除所有的事实
         for k, v in self.Fact.items():
             exec("self."+str(k)+"="+"None")
-            self.mark[str(k)] = 1
+            self.mark[str(k)] = 0
         # 初始化新的事实和规则库
         if(Fact == None):
             Fact = {}
@@ -180,6 +180,14 @@ class MyProduce():
         for k, v in self.Fact.items():
             exec("self."+str(k)+"="+str(v))
             self.mark[str(k)] = 1
+        # 初始化事实的局部变量和事实映射到规则list
+        for k, v in self.Fact.items():
+            exec("self."+str(k)+"="+str(v))
+            self.mark[str(k)] = 1
+            self.Fact2RulesLeft[k] = []  # 事实映射到规则list
+            for k2, v2 in self.Rules.items():
+                if(k in k2):
+                    self.Fact2RulesLeft[k].append(k2)
         self.isStop = False  # 是否停止
 
     def addFact(self, newFact):
@@ -191,6 +199,14 @@ class MyProduce():
             self.Fact[k] = v
             exec("self."+str(k)+"="+str(v))
             self.mark[str(k)] = 1
+        # 初始化事实的局部变量和事实映射到规则list
+        for k, v in self.Fact.items():
+            exec("self."+str(k)+"="+str(v))
+            self.mark[str(k)] = 1
+            self.Fact2RulesLeft[k] = []  # 事实映射到规则list
+            for k2, v2 in self.Rules.items():
+                if(k in k2):
+                    self.Fact2RulesLeft[k].append(k2)
 
     def deleteFact(self, deleteFactDict):
         """

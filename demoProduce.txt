@@ -2,6 +2,8 @@ Excute Rule: (a>b)&(a<=d) -> g = c+(3*(a-b))
 Add Fact   : g = 11
 Excute Rule: (a>b)&(a<=d) -> g = c+(3*(a-b))
 Add Fact   : g = 11
+Excute Rule: (a>b)&(a<=d) -> g = c+(3*(a-b))
+Add Fact   : g = 11
 ***************************
 ********Fact Result********
 ***************************
